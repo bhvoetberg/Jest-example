@@ -1,0 +1,34 @@
+NPM met Jest
+
+0 html, styles en app + .gitignore (/.idea)
+1 Maak package.json aan: npm init
+2 Installeer Jest: npm install jest --save-dev
+(n.b. --save-dev gaat dus niet mee in export voor gebruik, enkel development)
+3 Sluit node_modules uit in .gitignore
+4 Voeg ‘npx jest’ toe aan “test” regel in package.json:
+	"test": "npx jest"
+5 maak map aan in project ‘__test__’ met daarin ‘index.test.js’
+6 maak en controleer volgende basis test dmv: run npm test
+
+test('Check of dit werkt', () =>{
+    console.log("Ik wordt getest");
+})
+7 Continu test laten draaien, door toevoeging in package.json
+"test:watch": "npx jest –watch"
+8 Maak arrange (definieer variabelen), act (doe berekening) and assert expect(uitkomst).toBe(verwachting) of bijvoorbeel expect(uitkomst).toEqual(verwachting) of expect(uitkomst).tobeNull();
+9 Exporteer te testen functies
+module.exports = {
+    add: add,
+    findByName: findByName,
+}
+
+(als de naam van de functie gelijk is aan de exportnaam mag je ‘: naam’  weglaten.
+
+10 importeer (require) de ge-exporteerde functies:
+
+// const add = require('../app').add;
+// const findByName = require('../app').findByName;
+// of destructured:
+const {add, findByName} = require('../app');
+
+

@@ -1,11 +1,7 @@
-
-// test('Check of dit werkt', () =>{
-//     console.log("Ik wordt getest");
-//
-// })
-function add(num1, num2) {
-    return num1 + num2;
-}
+// const add = require('../app').add;
+// const findByName = require('../app').findByName;
+// of destructured:
+const {add, findByName} = require('../app');
 
 
 test('The add function adds two numbers and returns the sum.', () => {
@@ -20,16 +16,6 @@ test('The add function adds two numbers and returns the sum.', () => {
     expect(sum).toBe(12);
 
 })
-
-function findByName(names, user) {
-    for (let i = 0; i < names.length; i++) {
-        if (names[i].name === user) {
-            return names[i];
-        }
-    }
-    return null;
-}
-
 
 test('findByName will return object from array for specified name. ', () => {
     //Arrange
